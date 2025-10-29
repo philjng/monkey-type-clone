@@ -27,6 +27,7 @@ export default function Type({ quote }: { quote: Quote }) {
           setCurrentInput((prev) => prev.slice(0, -1))
         }
       } else if (event.key === " " && currentInput !== "") {
+        // CURRENT BUG: If currentInput > currentWord, how to do future comparison for color of text against allChars
         if (currentInput.length < currentWord.length) {
           let filler = "*".repeat(currentWord.length - currentInput.length + 1)
           let skippedInput = (currentInput + filler).split("")
