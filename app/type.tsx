@@ -37,6 +37,10 @@ export default function Type({ quote }: { quote: Quote }) {
           setUntyped((prev) => prev.slice(filler.length))
         } else {
           setUntyped((prev) => prev.slice(1))
+          let totalInput = currentInput + "*"
+          totalInput.split("").map((char) => {
+            setTyped((prev) => [...prev, char])
+          })
         }
         setCurrentWord(words[wordCount + 1])
         setWordCount((prev) => prev + 1)

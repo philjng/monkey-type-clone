@@ -20,22 +20,32 @@ export const ColoredText = ({
   const characters: React.ReactNode[] = []
   let className = ""
   let char: string
-  for (let i = 0; i < typed.length; i++) {
-    if (typed[i] !== allChars[i]) {
-      console.log("typed; wrong")
+
+  // matched all previously typed
+  let i = 0,
+    j = 0
+  while (i < typed.length) {
+    if (allChars[j] === " " && typed[i] !== "*") {
+      className += "text-red-600 z-40"
+      char = typed[i]
+    } else if (typed[i] !== allChars[j]) {
       className += "text-red-500 z-40"
+      char = allChars[j]
+      j++
     } else {
-      console.log("typed; right")
       className += "text-white z-40"
+      char = allChars[j]
+      j++
     }
 
     characters.push(
       <span key={i} className={className}>
         {/* {char} */}
-        {allChars[i]}
+        {char}
       </span>
     )
     className = ""
+    i++
   }
 
   // match currently typed word
