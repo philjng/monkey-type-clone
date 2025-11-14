@@ -15,8 +15,6 @@ export const ColoredText = ({
   allChars,
   currentWord,
 }: ColoredTextProps) => {
-  console.log("current input: ", currentInput)
-  console.log("typed, allChars ", typed.join(""), allChars.join(""))
   const characters: React.ReactNode[] = []
   let className = ""
   let char: string
@@ -40,7 +38,6 @@ export const ColoredText = ({
 
     characters.push(
       <span key={i} className={className}>
-        {/* {char} */}
         {char}
       </span>
     )
@@ -49,18 +46,13 @@ export const ColoredText = ({
   }
 
   // match currently typed word
-  console.log("current word: ", currentWord)
   for (let i = 0; i < currentInput.length; i++) {
     if (
       i >= currentWord.length ||
       (currentInput[i] && currentInput[i] !== currentWord[i])
     ) {
-      // console.log("current; wrong")
-
       className += "text-red-500 z-40"
     } else {
-      // console.log("current; right")
-
       className += "text-white z-40"
     }
     char = i >= currentWord.length ? currentInput[i] : currentWord[i]

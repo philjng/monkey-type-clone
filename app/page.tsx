@@ -2,7 +2,7 @@ import Type from "./type"
 import "./styles.css"
 import { DEFAULT_QUOTE } from "./Quote"
 
-const API_URL = "https://api.quotable.io/quotes/random"
+const API_URL = "http://api.quotable.io/quotes/random"
 // const RETRIES = 5
 
 // const fetchRetry = async () => {
